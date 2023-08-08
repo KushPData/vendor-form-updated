@@ -1,0 +1,13 @@
+{
+    "VendorList":
+    [{"VendorID":1,"VendorName":"abc","VendorAddress":"ahmedabad"},
+    {"VendorID":2,"VendorName":"xyz","VendorAddress":"ahmedabad"}],
+
+    "ShipTo":
+    [{"CompanyID":1,"CompanyName":"RadixSoftwarePrivate","CompanyAddress":"Ekyarth"},
+    {"CompanyID":2,"CompanyName":"Rad","CompanyAddress":"Ekyarth"}],
+
+    "DeliveryMethod":["value1","Value2"],
+
+    "PaymentTerms":["CASH","Online"]
+}
