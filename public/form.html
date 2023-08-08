@@ -34,8 +34,26 @@
         </div>
 
         <div class="product-details-container form-element">
-            <div id="product-list">
+            <div class="product-list">
+                <div class="one-product" id="1">
+                    <div>
+                        <label for="product-name">Product Name/Description: </label>
+                        <input class="input-box" type="text" name="product-name" id="product-name">
+                        <div class="invalid-input d-none name-feedback">Please enter a product name!!!</div>
+                    </div>
 
+                    <div>
+                        <label for="quantity">Qty Approx: </label>
+                        <input class="input-box" type="text" name="quantity" id="quantity">
+                        <div class="invalid-input d-none quantity-feedback">Please enter the quantity of product!!!</div>
+                    </div>
+
+                    <div>
+                        <label for="unit-price">Unit Price: </label>
+                        <input class="input-box" type="text" name="unit-price" id="unit-price">
+                        <div class="invalid-input d-none price-feedback">Please enter the unit price of the product!!!</div>
+                    </div>
+                </div>
             </div>
             <button class="button" id="add-button" type="click">Add a Product</button>
         </div>
@@ -44,7 +62,7 @@
             <div class="logistics-details">
 
             </div>
-            
+
             <label for="against-quote">Against Quote Number: </label>
             <input class="input-box" type="text" id="against-quote" name="against-quote">
         </div>
@@ -52,7 +70,7 @@
         <div class="other-details-container form-element">
             <label for="discount">Discount: </label>
             <input class="input-box" type="text" name="discount" id="discount">
-            
+
             <label for="other-costs">Other Costs: </label>
             <input class="input-box" type="text" name="other-costs" id="other-costs">
 
