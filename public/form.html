@@ -17,17 +17,21 @@
     </div>
 
     <form class="form">
-        <div class="general-details-container form-element">
-            <div class="general-details">
+
+        <div class="general-details">
+            <div class="general-details-item">
                 <label for="order-date">Date: </label>
                 <input class="input-box" type="date" id="order-date" name="order-date">
                 <div class="invalid-input d-none date-feedback">Please enter a valid date!!!</div>
+            </div>
 
-                <label for="order-po-number">P.O. Number</label>
+            <div class="general-details-item">
+                <label for="order-po-number">P.O. Number: </label>
                 <input class="input-box" type="text" name="order-po-number" id="order-po-number">
                 <div class="invalid-input d-none po-feedback">Please enter a P.O. Number!!!</div>
             </div>
         </div>
+
 
         <div class="stakeholders-details-container form-element">
 
@@ -45,17 +49,22 @@
                     <div>
                         <label for="quantity">Qty Approx: </label>
                         <input class="input-box" type="text" name="quantity" id="quantity">
-                        <div class="invalid-input d-none quantity-feedback">Please enter the quantity of product!!!</div>
+                        <div class="invalid-input d-none quantity-feedback">Please enter the quantity of product!!!
+                        </div>
                     </div>
 
                     <div>
                         <label for="unit-price">Unit Price: </label>
                         <input class="input-box" type="text" name="unit-price" id="unit-price">
-                        <div class="invalid-input d-none price-feedback">Please enter the unit price of the product!!!</div>
+                        <div class="invalid-input d-none price-feedback">Please enter the unit price of the product!!!
+                        </div>
                     </div>
                 </div>
             </div>
-            <button class="button" id="add-button" type="click">Add a Product</button>
+
+            <div class="button-container">
+                <button class="button" id="add-button" type="click">Add a Product</button>
+            </div>
         </div>
 
         <div class="logistics-details-container form-element">
@@ -63,29 +72,47 @@
 
             </div>
 
-            <label for="against-quote">Against Quote Number: </label>
-            <input class="input-box" type="text" id="against-quote" name="against-quote">
+            <div class="item">
+                <label for="against-quote">Against Quote Number: </label>
+                <input class="input-box" type="text" id="against-quote" name="against-quote">
+            </div>
         </div>
 
         <div class="other-details-container form-element">
-            <label for="discount">Discount: </label>
-            <input class="input-box" type="text" name="discount" id="discount">
+            <div class="other-details-item">
+                <label for="discount">Discount: </label>
+                <input class="input-box" type="text" name="discount" id="discount">
+            </div>
 
-            <label for="other-costs">Other Costs: </label>
-            <input class="input-box" type="text" name="other-costs" id="other-costs">
+            <div class="other-details-item">
+                <label for="other-costs">Other Costs: </label>
+                <input class="input-box" type="text" name="other-costs" id="other-costs">
+            </div>
 
-            <label for="gst-vate-rate">GST/VAT Rate: </label>
-            <input class="input-box" type="text" name="gst-vate-rate" id="gst-vate-rate">
-            <div class="invalid-input d-none gst-vate-rate-feedback">Please enter the GST/VAT Rate!!!</div>
+            <div class="other-details-item">
+                <label for="gst-vate-rate">GST/VAT Rate: </label>
+                <input class="input-box" type="text" name="gst-vate-rate" id="gst-vate-rate">
+                <div class="invalid-input d-none gst-vate-rate-feedback">Please enter the GST/VAT Rate!!!</div>
+            </div>
 
-            <label for="note">Note: </label>
-            <input class="input-box" type="text" name="note" id="note">
+            <div class="other-details-item">
+                <label for="note">Note: </label>
+                <input class="input-box" type="text" name="note" id="note">
+            </div>
         </div>
 
-        <button class="button" id="submit-button" type="click">Submit</button>
-    </form>
+        <div class="button-container">
+            <button class="button" id="submit-button" type="click">Submit</button>
 
-    <script type="module" src="./../src/order.js"></script>
+        </div>
+    
+    </form>
+    <table id="general-table">
+
+    </table>
+    <script type="module" src="./../src/order.js">
+       
+    </script>
 </body>
 
 </html>

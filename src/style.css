@@ -2,6 +2,156 @@
     box-sizing: border-box;
 }
 
+html, body {
+    margin: 0;
+}
+
+body {
+    font-size: 20px;
+
+}
+
 .d-none {
     display: none;
+}
+
+.header-container {
+    background-color: aliceblue;
+    padding: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+h1 {
+    font-size: 32px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:#1e4f2b;
+}
+
+.general-details {
+    display: flex;
+    width: 100%;
+}
+
+.input-box {
+    height: 22px;
+}
+
+.form-element {
+    margin-bottom: 10px;
+}
+
+.general-details-item {
+    flex-basis: 50%;
+    margin: 20px;
+}
+
+.general-details-item .input-box {
+    width: 70%;
+    text-align: center;
+    border: 1px solid;
+    padding: 5px;
+    height: 30px;
+    border-radius: 7px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.stakeholders-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    flex-basis: 50%;
+    margin: 20px;
+}
+
+.item .input-box {
+    width: 70%;
+    text-align: center;
+    border: 1px solid;
+    padding: 5px;
+    height: 30px;
+    border-radius: 7px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.one-product {
+    display: flex;
+    justify-content: center;
+}
+
+.one-product div {
+    flex-basis: 33%;
+    margin: 10px;
+}
+
+.one-product .input-box {
+    width: 50%;
+    text-align: center;
+    border: 1px solid;
+    padding: 5px;
+    height: 30px;
+    border-radius: 7px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.product-list {
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 20px;
+    margin-right: 100px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    width: 250px;
+    text-align: center;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 7px;
+    font-size: 16px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.logistics-details-container .input-box{
+    width: 85%;
+}
+
+.one-product label {
+    display: block;
+}
+
+.other-details-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.other-details-item {
+    margin: 20px;
+}
+
+.other-details-item .input-box {
+    width: 90%;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 7px;
+    margin: 10px;
+    padding: 5px;
 }

@@ -7,10 +7,13 @@ export class functionalities {
     makeDropdownList(place, jsonKey, elementId, elementDescription, value) {
         const jsonValueArray = data[jsonKey];
 
+        const item = document.createElement("div");
+        item.classList.add("item");
+
         const label = document.createElement("label");
         label.setAttribute("for", elementId);
         label.textContent = elementDescription;
-        place.appendChild(label);
+        item.appendChild(label);
 
         const select = document.createElement("select");
         select.setAttribute("class", "input-box");
@@ -19,7 +22,7 @@ export class functionalities {
 
         const defaultOption = document.createElement("option");
         defaultOption.setAttribute("value", "");
-        defaultOption.textContent = "--None Selected";
+        defaultOption.textContent = "--- None Selected ---";
         select.appendChild(defaultOption);
 
         for(let i = 0; i < jsonValueArray.length; i++) {
@@ -34,7 +37,9 @@ export class functionalities {
             select.appendChild(option);
         }
 
-        place.appendChild(select);
+        item.appendChild(select);
+        
+        place.appendChild(item);
     }
 
     makeProductValue(elementId, elementDescription, elementFeedbackId, elementFeedback){
@@ -70,6 +75,8 @@ export class functionalities {
             oneProduct.classList.add("one-product");
             oneProduct.setAttribute("id", numberOfProducts);
 
+       
+
             for(let i = 0; i < elementIdArray.length; i++) {
                 let productValue = order.makeProductValue(elementIdArray[i], elementDescriptionArray[i], elementFeedbackIdArray[i], elementFeedbackArray[i]);
                 oneProduct.appendChild(productValue);
@@ -79,5 +86,14 @@ export class functionalities {
 
             place.appendChild(oneProduct);
         })
+    }
+
+    getValues(list) {
+        const array = [];
+        for(const product of list.values()) {
+            array.push(product.value);
+        }
+
+        return array;
     }
 }
