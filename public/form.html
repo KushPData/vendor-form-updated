@@ -1,0 +1,69 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Kush Patel">
+    <meta name="description" content="Order form">
+
+    <title>Vendor Form</title>
+
+    <link rel="stylesheet" href="./../src/style.css">
+</head>
+
+<body>
+    <div class="header-container">
+        <h1>Order Form</h1>
+    </div>
+
+    <form class="form">
+        <div class="general-details-container form-element">
+            <div class="general-details">
+                <label for="order-date">Date: </label>
+                <input class="input-box" type="date" id="order-date" name="order-date">
+                <div class="invalid-input d-none date-feedback">Please enter a valid date!!!</div>
+
+                <label for="order-po-number">P.O. Number</label>
+                <input class="input-box" type="text" name="order-po-number" id="order-po-number">
+                <div class="invalid-input d-none po-feedback">Please enter a P.O. Number!!!</div>
+            </div>
+        </div>
+
+        <div class="stakeholders-details-container form-element">
+
+        </div>
+
+        <div class="product-details-container form-element">
+            <div id="product-list">
+
+            </div>
+            <button class="add-button" type="click">Add a Product</button>
+        </div>
+
+        <div class="logistics-details-container form-element">
+            <div class="logistics-details">
+
+            </div>
+            
+            <label for="against-quote">Against Quote Number: </label>
+            <input class="input-box" type="text" id="against-quote" name="against-quote">
+        </div>
+
+        <div class="other-details-container form-element">
+            <label for="discount">Discount: </label>
+            <input class="input-box" type="text" name="discount" id="discount">
+            
+            <label for="other-costs">Other Costs: </label>
+            <input class="input-box" type="text" name="other-costs" id="other-costs">
+
+            <label for="gst-vate-rate">GST/VAT Rate: </label>
+            <input class="input-box" type="text" name="gst-vate-rate" id="gst-vate-rate">
+            <div class="invalid-input d-none gst-vate-rate-feedback">Please enter the GST/VAT Rate!!!</div>
+
+            <label for="note">Note: </label>
+            <input class="input-box" type="text" name="note" id="note">
+        </div>
+    </form>
+</body>
+
+</html>
