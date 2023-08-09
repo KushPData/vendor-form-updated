@@ -3,6 +3,7 @@ export class test {
     stakeholderArray = [];
     logisticsArray = [];
     productArray = [];
+    otherArray = [];
 
 
     add(data, type) {
@@ -14,6 +15,9 @@ export class test {
             this.logisticsArray.push(data);
         } else if(type === "product") {
             this.productArray.push(data);
+        } else {
+            this.otherArray.push(data);
+            console.log(this.otherArray);
         }
     }
 
@@ -26,6 +30,8 @@ export class test {
             return this.logisticsArray;
         } else if (type === "product") {
             return this.productArray;
+        } else {
+            return this.otherArray;
         }
     }
 

@@ -21,6 +21,9 @@ const submit = document.getElementById("submit-button");
 submit.addEventListener("click", (event) => {
     event.preventDefault();
 
+    const summary = document.querySelector(".summary");
+    summary.classList.remove("d-none");
+
     // --------------------------------------------------------------------------------------------------------
     const orderDate = document.querySelector("#order-date").value;
     const orderPoNumber = document.querySelector("#order-po-number").value;
@@ -112,5 +115,35 @@ submit.addEventListener("click", (event) => {
     const productTable = document.getElementById("product-table");
     productTable.innerHTML = productRow;
 
+    
+    // ---------------------------------------------------------------------------------------------------------
+
+    const discount = document.querySelector("#discount").value;
+    const otherCosts = document.querySelector("#other-costs").value;
+    const gstVatRate = document.querySelector("#gst-vat-rate").value;
+    const note = document.querySelector("#note").value;
+
+    const otherObject = {"discount": discount, "otherCosts": otherCosts, "gstVatRate": gstVatRate, "note": note, "date": orderDate};
+    test1.add(otherObject);
+
+    const otherArray = test1.List();
+    console.log(otherArray);
+
+    console.log(orderDate);
+
+    const noteContainer = document.querySelector(".note-container");
+    noteContainer.textContent = "Note: " + otherArray[0].note;
+
+    const dateContainer = document.querySelector(".date-container");
+    dateContainer.innerHTML = "<tr><td>Date</td><td>" + otherArray[0].date + "</td></tr>";
+
+    const gstVatValue = (parseInt(otherArray[0].gstVatRate)/100)*parseInt(totalExcludingTax);
+    const total = parseInt(totalExcludingTax) + parseInt(otherArray[0].otherCosts) - parseInt(otherArray[0].discount) + gstVatValue;
+
+    const otherTable = document.getElementById("other-table");
+    otherTable.innerHTML = "<tr><td>Discount</td><td>" + otherArray[0].discount + "</td></tr><tr><td>Other Costs</td><td>" + otherArray[0].otherCosts + "</td></tr><tr><td>GST/VAT Rate</td><td>" + otherArray[0].gstVatRate + "</td></tr><tr><td>GST/VAT " + otherArray[0].gstVatRate + "%" + "</td><td>"+ gstVatValue + "</td></tr><tr><td>Total</td><td>" + total + "</td></tr>"
+
+    const signature = document.querySelector(".signature");
+    signature.textContent = "Authorized Signature";
 
 })

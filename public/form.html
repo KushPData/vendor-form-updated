@@ -90,8 +90,8 @@
             </div>
 
             <div class="other-details-item">
-                <label for="gst-vate-rate">GST/VAT Rate: </label>
-                <input class="input-box" type="text" name="gst-vate-rate" id="gst-vate-rate">
+                <label for="gst-vat-rate">GST/VAT Rate: </label>
+                <input class="input-box" type="text" name="gst-vat-rate" id="gst-vat-rate">
                 <div class="invalid-input d-none gst-vate-rate-feedback">Please enter the GST/VAT Rate!!!</div>
             </div>
 
@@ -105,27 +105,52 @@
             <button class="button" id="submit-button" type="click">Submit</button>
 
         </div>
-    
+
     </form>
-    <div class="general-table-container">
-        <table id="general-table">
+    <div class="summary d-none">
+        <div class="general-table-container">
+            <table id="general-table">
+
+            </table>
+        </div>
+
+        <table id="stakeholder-table">
 
         </table>
+
+        <table id="logistics-table">
+
+        </table>
+
+        <table id="product-table">
+
+        </table>
+
+        <div class="additional-info-container">
+            <div class="additional-info-item">
+                <div class="note-container">
+
+                </div>
+
+                <table class="date-container">
+
+                </table>
+            </div>
+
+            <div class="additional-info-item">
+                <table id="other-table">
+
+                </table>
+
+                <div class="signature">
+
+                </div>
+            </div>
+        </div>
     </div>
 
-    <table id="stakeholder-table">
-
-    </table>
-
-    <table id="logistics-table">
-
-    </table>
-
-    <table id="product-table">
-
-    </table>
     <script type="module" src="./../src/order.js">
-       
+
     </script>
 </body>
 

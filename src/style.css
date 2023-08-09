@@ -8,7 +8,8 @@ html, body {
 
 body {
     font-size: 20px;
-
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .d-none {
@@ -211,4 +212,40 @@ table#product-table tr td:last-child {
 
 #product-table tr:last-child {
     background-color: lightgray;
+}
+
+.additional-info-container {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 20px;
+}
+
+.additional-info-item {
+    flex-basis: 50%;
+}
+
+.date-container, #other-table {
+    width: 100%;
+    margin: 0;
+}
+
+.additional-info-container td {
+    height: 30px;
+    font-size: 16px;
+}
+
+.signature {
+    height: 80px;
+    border: 1px solid;
+    padding: 5px;
+    display: flex;
+    justify-content: right;
+    align-items: end;
+}
+
+.note-container {
+    height: 200px;
+    border: 1px solid;
+    padding: 5px;
 }
