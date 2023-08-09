@@ -155,3 +155,60 @@ h1 {
     margin: 10px;
     padding: 5px;
 }
+
+table {
+    width: 90%;
+    border: 1px solid;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+th {
+    text-align: center;
+    border: 1px solid;
+    border-color: black;
+    background-color: blue;
+    color: white;
+    height: 30px;
+}
+
+td {
+    text-align: center;
+    border: 1px solid;
+    height: 30px;
+}
+
+table#general-table td, table#stakeholder-table td{
+    width: 50%;
+}
+
+table#logistics-table td {
+    width: 33%;
+}
+
+table#general-table {
+    width: 30%;
+    margin-right: 5%;
+}
+
+
+.general-table-container {
+    display: flex;
+    justify-content: right;
+}
+
+table#product-table tr td:last-child {
+    background-color: lightgray;
+}
+
+#stakeholder-table, #logistics-table, #product-table {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#product-table tr:last-child {
+    background-color: lightgray;
+}

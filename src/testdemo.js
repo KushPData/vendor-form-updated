@@ -1,13 +1,32 @@
 export class test {
-    arr = [];
+    generalArray = [];
+    stakeholderArray = [];
+    logisticsArray = [];
+    productArray = [];
 
 
-    add(data) {
-        this.arr.push(data);
-        console.log(this.arr);
+    add(data, type) {
+        if(type === "general") {
+            this.generalArray.push(data);
+        } else if(type === "stakeholder") {
+            this.stakeholderArray.push(data);
+        } else if(type === "logistics") {
+            this.logisticsArray.push(data);
+        } else if(type === "product") {
+            this.productArray.push(data);
+        }
     }
-    List() {
-        return this.arr;
+
+    List(type) {
+        if(type === "general") {
+            return this.generalArray;
+        } else if(type === "stakeholder") {
+            return this.stakeholderArray;
+        } else if(type === "logistics") {
+            return this.logisticsArray;
+        } else if (type === "product") {
+            return this.productArray;
+        }
     }
 
 }
