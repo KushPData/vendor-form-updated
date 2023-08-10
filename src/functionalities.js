@@ -96,4 +96,8 @@ export class functionalities {
 
         return array;
     }
+
+    validate() {
+        
+    }
 }

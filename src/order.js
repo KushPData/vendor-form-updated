@@ -24,65 +24,13 @@ submit.addEventListener("click", (event) => {
     const summary = document.querySelector(".summary");
     summary.classList.remove("d-none");
 
-    // --------------------------------------------------------------------------------------------------------
     const orderDate = document.querySelector("#order-date").value;
     const orderPoNumber = document.querySelector("#order-po-number").value;
-
-    let generalObject = {"heading": "Date", "data": orderDate};
-    test1.add(generalObject, "general");
-
-    generalObject = {"heading": "P.O. Number", "data": orderPoNumber};
-    test1.add(generalObject, "general");
-
-    let generalArray = test1.List("general");
-    let generalRow = "";
-
-    for(let i = 0; i < generalArray.length; i++) {
-        generalRow += "<tr><td>" + generalArray[i].heading + "</td><td>" + generalArray[i].data + "</td></tr>";
-    }
-
-    const generalTable = document.getElementById("general-table");
-    generalTable.innerHTML = generalRow;
-
-    // ---------------------------------------------------------------------------------------------------------
-
     const vendor = document.querySelector("#vendor-list").value;
     const shipTo = document.querySelector("#ship-to").value;
-
-    let stakeholderObject = {"vendor": vendor, "shipTo": shipTo};
-    test1.add(stakeholderObject, "stakeholder");
-
-    let stakeholderArray = test1.List("stakeholder");
-    let stakeholderRow = "<tr><th>Vendor</th><th>Ship To</th></tr>";
-
-    for(let i = 0; i < stakeholderArray.length; i++) {
-        stakeholderRow += "<tr><td>" + stakeholderArray[i].vendor + "</td><td>" + stakeholderArray[i].shipTo + "</td></tr>";
-    }
-
-    const stakeholderTable = document.getElementById("stakeholder-table");
-    stakeholderTable.innerHTML = stakeholderRow;
-
-    // ---------------------------------------------------------------------------------------------------------
-
     const deliveryMethod = document.querySelector("#delivery-method").value;
     const paymentTerms = document.querySelector("#payment-terms").value;
     const againstQuote = document.querySelector("#against-quote").value;
-
-    let logisticsObject = {"deliveryMethod": deliveryMethod, "paymentTerms": paymentTerms, "againstQuote": againstQuote};
-    test1.add(logisticsObject, "logistics");
-
-    let logisticsArray = test1.List("logistics");
-    let logisticsRow = "<tr><th>Delivery Method</th><th>Payment Terms</th><th>Against Quote Number</th></tr>";
-
-    for(let i = 0; i < logisticsArray.length; i++) {
-        logisticsRow += "<tr><td>" + logisticsArray[i].deliveryMethod + "</td><td>" + logisticsArray[i].paymentTerms + "</td><td>" + logisticsArray[i].againstQuote + "</td><tr>";
-    }
-
-    const logisticsTable = document.getElementById("logistics-table");
-    logisticsTable.innerHTML = logisticsRow;
-
-    // ---------------------------------------------------------------------------------------------------------
-
     const nameList = document.querySelectorAll("#product-name");
     const quantityList = document.querySelectorAll("#quantity");
     const priceList = document.querySelectorAll("#unit-price");
@@ -91,59 +39,70 @@ submit.addEventListener("click", (event) => {
     const quantityArray = order.getValues(quantityList);
     const priceArray = order.getValues(priceList);
 
-    for(let i = 0; i < nameArray.length; i++) {
-        let productObject = {"srNumber": i + 1,"name": nameArray[i], "quantity": quantityArray[i], "price": priceArray[i]};
-        test1.add(productObject, "product");
-    }
-
-    let productArray = test1.List("product");
-    let productRow = "<tr><th>SR. No.</th><th>Product Name/Description</th><th>Qty Approx</th><th>Unit Price</th><th>Total</th></tr>";
-    let counter = 0;
-    let totalExcludingTax = 0;
-    for (let i = 0; i < productArray.length; i++) {
-        productRow += "<tr><td>" + productArray[i].srNumber + "</td><td>" + productArray[i].name + "</td><td>" + productArray[i].quantity + "</td><td>" + productArray[i].price + "</td><td>" + parseInt(productArray[i].quantity)*parseInt(productArray[i].price) + "</td></tr>";
-        counter++;
-        totalExcludingTax += parseInt(productArray[i].quantity)*parseInt(productArray[i].price);
-    }
-
-    for(let i = 0; i < 16 - counter; i++){
-        productRow += "<tr><td></td><td></td><td></td><td></td><td></td></tr>"
-    }
-
-    productRow += "<tr><td></td><td></td><td></td><td>Total Excl. Tax</td><td>" + totalExcludingTax + "</td></tr>"
-
-    const productTable = document.getElementById("product-table");
-    productTable.innerHTML = productRow;
-
-    
-    // ---------------------------------------------------------------------------------------------------------
-
     const discount = document.querySelector("#discount").value;
     const otherCosts = document.querySelector("#other-costs").value;
     const gstVatRate = document.querySelector("#gst-vat-rate").value;
     const note = document.querySelector("#note").value;
 
-    const otherObject = {"discount": discount, "otherCosts": otherCosts, "gstVatRate": gstVatRate, "note": note, "date": orderDate};
-    test1.add(otherObject);
+    const object = {"date": orderDate, "poNumber": orderPoNumber, "vendor": vendor, "shipTo": shipTo, "deliveryMethod": deliveryMethod, "paymentTerms": paymentTerms, "againstQuote": againstQuote, "nameArray": nameArray, "quantityArray": quantityArray, "priceArray": priceArray, "discount": discount, "otherCosts": otherCosts, "gstVatRate": gstVatRate, "note": note};
 
-    const otherArray = test1.List();
-    console.log(otherArray);
+    test1.add(object);
 
-    console.log(orderDate);
+    const arr = test1.List();
 
-    const noteContainer = document.querySelector(".note-container");
-    noteContainer.textContent = "Note: " + otherArray[0].note;
+    let row = "";
 
-    const dateContainer = document.querySelector(".date-container");
-    dateContainer.innerHTML = "<tr><td>Date</td><td>" + otherArray[0].date + "</td></tr>";
+    const table = document.querySelector("#table");
 
-    const gstVatValue = (parseInt(otherArray[0].gstVatRate)/100)*parseInt(totalExcludingTax);
-    const total = parseInt(totalExcludingTax) + parseInt(otherArray[0].otherCosts) - parseInt(otherArray[0].discount) + gstVatValue;
+    for(let i = 0; i < arr.length; i++) {
+        row += "<tr><th colspan='2'>Vendor</th><th colspan='3'>Ship To</th><tr>";
+        row += "<tr><td colspan='2'>" + arr[i].vendor + "</td><td colspan='3'>" + arr[i].shipTo + "</td></tr>"
 
-    const otherTable = document.getElementById("other-table");
-    otherTable.innerHTML = "<tr><td>Discount</td><td>" + otherArray[0].discount + "</td></tr><tr><td>Other Costs</td><td>" + otherArray[0].otherCosts + "</td></tr><tr><td>GST/VAT Rate</td><td>" + otherArray[0].gstVatRate + "</td></tr><tr><td>GST/VAT " + otherArray[0].gstVatRate + "%" + "</td><td>"+ gstVatValue + "</td></tr><tr><td>Total</td><td>" + total + "</td></tr>"
+        row += "<tr><th colspan='2'>Delivery Method</th><th>Payment Terms</th><th colspan='2'>Against Quote No:</th></tr>";
+        row += "<tr><td colspan='2'>" + arr[i].deliveryMethod + "</td><td>" + arr[i].paymentTerms + "</td><td colspan='2'>" + arr[i].againstQuote + "</td></tr>"
 
-    const signature = document.querySelector(".signature");
-    signature.textContent = "Authorized Signature";
+        row += "<tr><th>SR. NO.</th><th>Product Name/Description</th><th>Qty Approx</th><th>Unit Price</th><th>Total</th></tr>"
 
+        let counter = 0;
+        let totalExcludingTax = 0;
+        let totalProduct = 0;
+        for(let j = 0; j < arr[i].nameArray.length; j++) {
+            let total = parseInt(arr[i].quantityArray[j]) * parseInt(arr[i].priceArray[j]);
+            totalProduct += parseInt(arr[i].quantityArray[j]);
+            row += "<tr><td>" + (j + 1) + "</td><td>" + arr[i].nameArray[j] + "</td><td>" + arr[i].quantityArray[j] + "</td><td>" + arr[i].priceArray[j]  + "</td><td>" + total + "</td></tr>";
+
+            counter++;
+            totalExcludingTax += total;
+        }
+
+        for(let j = 0; j < (16 - counter); j++) {
+            row += "<tr><td></td><td></td><td></td><td></td><td></td></tr>";
+        }
+
+        row += "<tr><td></td><td>Total Excl. Tax</td><td>" + totalProduct + "</td><td colspan='2'>" + totalExcludingTax + "</td></tr>";
+
+        row += "<tr><td rowspan='7' colspan='2'>" + "Note:" + arr[i].note + "</td><td>Discount</td><td colspan='2'>" + arr[i].discount + "</td></tr>";
+
+        row += "<tr><td>Other Costs</td><td colspan='2'>" + arr[i].otherCosts + "</td></tr>";
+
+        row += "<tr><td>GST/VAT Rate</td><td colspan='2'>" + arr[i].gstVatRate + "%" + "</td></tr>";
+
+        let gstVatValue = (parseInt(arr[i].gstVatRate) / 100) * parseInt(totalExcludingTax);
+
+        row += "<tr><td>GST/VAT " + arr[i].gstVatRate + "%" + "</td><td colspan='2'>" + gstVatValue + "</td></tr>"
+
+        let grandTotal = (parseInt(totalExcludingTax) + parseInt(arr[i].otherCosts) + parseInt(gstVatValue)) - parseInt(arr[i].discount);
+
+        row += "<tr><td colspan='3'></td></tr>"
+
+        row += "<tr><td>Total</td><td colspan='2'>" + grandTotal + "</td></tr>"
+
+        row += "<tr><td rowspan='2' colspan='3'>Authorized signature</td></tr>"
+
+        // row += "<tr><td>Date</td><td>" + arr[i].date + "</td><td colspan='2'></td></tr>"
+
+    }
+
+    table.innerHTML = row;
+   
 })
